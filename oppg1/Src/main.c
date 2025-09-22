@@ -119,7 +119,7 @@ int main(void)
     if (HAL_GPIO_ReadPin(EXT_BTN_GPIO_Port, EXT_BTN_Pin)){
       if (timediff < redTime){
         redTime += 10 * 1000 * 1000; //add 10 seconds of red time
-        HAL_Delay(1000); //1s cooldown
+        HAL_Delay(10000); //10s cooldown as well so you can hold the button in without exponentialy increasing the time
       } else {
         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
         HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, GPIO_PIN_SET);
