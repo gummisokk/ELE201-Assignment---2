@@ -90,9 +90,9 @@ int main(void)
       HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
     } else if (player == 2){
       p2points++;
-      HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, GPIO_PIN_SET);
       HAL_Delay(3000);
-      HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, GPIO_PIN_RESET);
     }
     timer_val = __HAL_TIM_GET_COUNTER(&htim2);
     randTime = generateRandomNumber(3 * 1000 * 1000,20 * 1000 * 1000);
@@ -143,7 +143,7 @@ int main(void)
 
     int timediff = __HAL_TIM_GET_COUNTER(&htim2) - timer_val;
 
-    if (timediff < randTime){
+    if (timediff >= randTime){
         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
     }
 
