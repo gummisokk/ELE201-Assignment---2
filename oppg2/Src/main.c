@@ -77,19 +77,19 @@ int main(void)
   volatile uint32_t timer_val;
   int randTime;
 
-  int p1points;
-  int p2points;
+  int p1points = 0;
+  int p2points = 0;
 
 
   void score(int player){
     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
     if(player == 1){
-      p1points++;
+      p1points+=1;
       HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
       HAL_Delay(3000);
       HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
     } else if (player == 2){
-      p2points++;
+      p2points+=1;
       HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, GPIO_PIN_SET);
       HAL_Delay(3000);
       HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, GPIO_PIN_RESET);
